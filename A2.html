@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSync - Reduza Faltas em Consultas via WhatsApp</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004999;
+            --secondary: #00b894;
+            --bg: #f8f9fa;
+            --text: #2d3436;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #636e72;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-form {
+            flex: 1;
+            min-width: 300px;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary);
+        }
+
+        .hero-form h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #009475;
+        }
+
+        .calc-section {
+            background-color: #fff;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .calc-container {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+        }
+
+        .calc-result {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #d63031;
+        }
+
+        .features {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-dark);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        footer {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .alert-success {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Medi<span>Sync</span></div>
+        <small>Projeto Acadêmico - ADS</small>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Zero Faltas nas Consultas da sua Clínica</h1>
+            <p>Automatize confirmações de horários e encaixes pelo WhatsApp usando Inteligência Artificial. Sem apps extras para o paciente instalar.</p>
+            <ul>
+                <li>✅ Confirmação automática 24h antes da consulta</li>
+                <li>✅ Preenchimento automático de desistências</li>
+                <li>✅ Redução de até 85% no absenteísmo</li>
+            </ul>
+        </div>
+
+        <div class="hero-form">
+            <h3>Quero Testar na Minha Clínica</h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">Cadastre-se para receber um teste gratuito do sistema.</p>
+            
+            <form id="leadForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" required placeholder="Ex: Dr. Roberto Silva">
+                </div>
+                <div class="form-group">
+                    <label for="clinica">Nome da Clínica/Consultório</label>
+                    <input type="text" id="clinica" required placeholder="Ex: Clínica Ortomed">
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp</label>
+                    <input type="tel" id="whatsapp" required placeholder="(11) 99999-9999">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail Corporativo</label>
+                    <input type="email" id="email" required placeholder="contato@suaclinica.com.br">
+                </div>
+                <button type="submit" class="btn-submit">Solicitar Demonstração</button>
+            </form>
+            <div id="successMsg" class="alert-success">
+                Obrigado pelo interesse! Seu cadastro foi recebido com sucesso. Entraremos em contato.
+            </div>
+        </div>
+    </section>
+
+    <section class="calc-section">
+        <h2>Calculadora de Prejuízo por Absenteísmo</h2>
+        <p>Veja quanto sua clínica deixa de faturar todos os meses devido a faltas não justificadas:</p>
+        
+        <div class="calc-container">
+            <div class="form-group">
+                <label for="consultas">Consultas agendadas por mês:</label>
+                <input type="number" id="consultas" value="200" oninput="calcularPrejuizo()">
+            </div>
+            <div class="form-group">
+                <label for="valor">Valor médio da consulta (R$):</label>
+                <input type="number" id="valor" value="150" oninput="calcularPrejuizo()">
+            </div>
+            <div class="form-group">
+                <label for="taxa">Taxa estimada de faltas (%):</label>
+                <input type="number" id="taxa" value="20" oninput="calcularPrejuizo()">
+            </div>
+
+            <div class="calc-result" id="resultadoCalc">
+                Prejuízo Mensal Estimado: R$ 6.000,00
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Como o MediSync Funciona?</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>1. Lembrete Inteligente</h3>
+                <p>O robô envia mensagens amigáveis via WhatsApp perguntando se o paciente confirma a presença.</p>
+            </div>
+            <div class="card">
+                <h3>2. Reagendamento Rápido</h3>
+                <p>Se o paciente cancelar, o sistema oferece novos horários disponíveis instantaneamente pelo próprio chat.</p>
+            </div>
+            <div class="card">
+                <h3>3. Fila de Encaixe</h3>
+                <p>Assim que um horário vaga, o sistema notifica automaticamente o próximo paciente da lista de espera.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MediSync - Projeto Integrador para a disciplina de Projetos Empreendedores (ADS)</p>
+    </footer>
+
+    <script>
+        function calcularPrejuizo() {
+            const consultas = parseFloat(document.getElementById('consultas').value) || 0;
+            const valor = parseFloat(document.getElementById('valor').value) || 0;
+            const taxa = parseFloat(document.getElementById('taxa').value) || 0;
+
+            const faltas = consultas * (taxa / 100);
+            const prejuizo = faltas * valor;
+
+            document.getElementById('resultadoCalc').innerText = 
+                'Prejuízo Mensal Estimado: ' + prejuizo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulação de envio/captura do Lead
+            document.getElementById('leadForm').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+            
+            console.log("Lead Capturado com Sucesso!");
+        });
+    </script>
+</body>
+</html>
